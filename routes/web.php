@@ -1,22 +1,42 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ProfileController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// for posts
+Route::prefix('posts')->group(function (){
+    Route::middleware('auth')->group(function () {
+        Route::get('/create', [PostController::class, 'create'])->name('posts.create');
+        Route::post('/', [PostController::class, 'store'])->name('posts.store');
+        Route::get('/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+        Route::put('/{post}', [PostController::class, 'update'])->name('posts.update');
+        Route::delete('/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    });
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/', [PostController::class, 'index'])->name('posts.index');
 });
 
-Route::get('/hello', function () {
-   return view('welcome');
+// for groups
+Route::prefix('groups')->group(function (){
+    Route::middleware('auth')->group(function () {
+        Route::get('/create', [GroupController::class, 'create'])->name('groups.create');
+        Route::post('/', [GroupController::class, 'store'])->name('groups.store');
+        Route::get('/{group}/edit', [GroupController::class, 'edit'])->name('groups.edit');
+        Route::put('/{group}', [GroupController::class, 'update'])->name('groups.update');
+        Route::delete('/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
+    });
+
+    Route::get('/', [GroupController::class, 'index'])->name('groups.index');
+});
+
+// for users
+Route::prefix('profile')->group(function (){
+    Route::middleware('auth')->group(function () {
+        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/', [ProfileController::class, 'update'])->name('profile.update');
+    });
+
+    Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
 });
