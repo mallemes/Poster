@@ -25,8 +25,6 @@ services:
     db:
         image: mysql:latest
         restart: always
-        volumes:
-            - ./tmp/db:/var/lib/mysql
         environment:
             MYSQL_DATABASE: poster_db
             MYSQL_ROOT_PASSWORD: root
