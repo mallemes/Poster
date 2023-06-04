@@ -12,10 +12,10 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->foreignIdFor(User::class, 'user_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'user_id')->constrained('users')->cascadeOnDelete();
             $table->string('file')->nullable();
             $table->foreignIdFor(Group::class, 'group_id')->nullable()
-            ->constrained();
+            ->constrained('groups');
             $table->boolean('is_published');
             $table->timestamps();
         });

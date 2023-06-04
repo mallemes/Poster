@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('file')->default(asset('default/default.png'));
             $table->string('slug')->unique();
             $table->foreignIdFor(User::class, 'user_id')
-                ->constrained()
+                ->constrained('users')
             ->restrictOnDelete();
             $table->text('description');
             $table->boolean('status');
