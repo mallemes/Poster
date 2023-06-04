@@ -4,6 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('/home', [IndexController::class, 'index'])->name('index');
+
+Route::get('/', function () {
+    return redirect()->route('index');
+});
 
 // for posts
 Route::prefix('posts')->group(function (){
@@ -38,5 +47,17 @@ Route::prefix('profile')->group(function (){
         Route::put('/', [ProfileController::class, 'update'])->name('profile.update');
     });
 
-    Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/{username}', [ProfileController::class, 'index'])->name('profile.index');
 });
+
+// for logout
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+
+// for login and register
+Route::get('/register', [RegisterController::class, 'create'])->name('register.form');
+Route::get('/login', [LoginController::class, 'create'])->name('login.form');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
