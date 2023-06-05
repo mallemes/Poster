@@ -12,7 +12,7 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->foreignIdFor(User::class, 'user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->string('file')->nullable();
             $table->foreignIdFor(Group::class, 'group_id')->nullable()
             ->constrained('groups');
