@@ -3,48 +3,30 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use DateTime;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Poster\Auth\RegisterRequest;
+use App\Services\Poster\Auth\AuthService;
 
 class RegisterController extends Controller
 {
-    public function create()
+    // service logic
+    private $service;
+    public function __construct(AuthService $service)
     {
-        return view('auth.register');
+        $this->service =  $service;
+    }
+    // end service logic
+
+
+    // register view for user
+    public function create(){
+        return view('in_template.register');
     }
 
-    public function register(Request $request)
+    // register to db logic for user
+    public function register(RegisterRequest $request)
     {
-        $validated = $request->validate([
-            'firstname' => 'required | string | max: 255',
-            'surname' => 'string | max: 255',
-            'username' => 'required | string | max: 255 |unique:users| regex:/^[a-zA-Z0-9_]+$/',
-            'email' => 'required | email | max: 255 | unique:users',
-            'password' => 'required | min: 6 | confirmed| regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
-            'day' => 'required | integer | min: 1 | max: 31',
-            'month' => 'required | integer | min: 1 | max: 12',
-            'year' => 'required |integer |min: 1900 | max: 2021',
-        ]);
-
-        $day = $validated['day'];
-        $month = $validated['month'];
-        $year = $validated['year'];
-
-        $birthdate = new DateTime("$year-$month-$day");
-
-        $user = User::create([
-            'firstname' => $validated['firstname'],
-            'surname' => $validated['surname'],
-            'username' => $validated['username'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'birthday' => $birthdate,
-        ]);
-        Auth::login($user);
-        Auth::user()->markOnline();
+        $validatedData = $request->validated();
+        $this->service->register($validatedData);
         return redirect()->route('index');
     }
 }

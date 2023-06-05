@@ -2,26 +2,25 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Poster\Auth\LoginRequest;
+use App\Services\Poster\Auth\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller{
+
+    // login view for user
     public function create()
     {
         return view('auth.login');
     }
 
-    public function login(Request $request){
+    // login to site logic for user
+    public function login(LoginRequest $request){
         if(Auth::check()){
             return redirect()->intended('index');
         }
-        $validated = $request->validate([
-            'username' => 'required |exists:users,username',
-            'password' => 'required'
-        ]);
-
-        if(Auth::attempt($validated)){
+        if (Auth::attempt($request->validated())) {
             Auth::user()->markOnline();
             return redirect()->intended('/');
         }

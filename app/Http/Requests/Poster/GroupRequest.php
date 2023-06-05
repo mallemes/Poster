@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Poster;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class GroupRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'title' => ['required'],
-            'content' => ['required'],
+            'name' => ['required'],
+            'slug' => ['required'],
             'user_id' => ['required', 'integer'],
-            'is_published' => ['required'],
+            'description' => ['required'],
+            'status' => ['required'],
         ];
     }
 

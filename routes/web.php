@@ -40,7 +40,7 @@ Route::prefix('groups')->group(function (){
     Route::get('/', [GroupController::class, 'index'])->name('groups.index');
 });
 
-// for users
+// for users profile or profiles
 Route::prefix('profile')->group(function (){
     Route::middleware('auth')->group(function () {
         Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -61,3 +61,8 @@ Route::get('/register', [RegisterController::class, 'create'])->name('register.f
 Route::get('/login', [LoginController::class, 'create'])->name('login.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+
+Route::get('/test', function () {
+    return view('in_template.auth_user_profile');
+});

@@ -289,10 +289,11 @@
 
 
 <script src="{{ asset('base/js/plugin.js') }}"></script>
-
-
 <script src="{{ asset('base/js/lightbox.js') }}"></script>
 <script src="{{ asset('base/js/scripts.js') }}"></script>
+<script src="{{asset('base/js/jquery.easypiechart.min.js')}}"></script>
+
+
 
 </body>
 
