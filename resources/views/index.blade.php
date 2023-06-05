@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url(images/s-2.jpg);">
+                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url({{ asset('base/images/s-2.jpg') }});">
                                         <div class="card-body d-block p-3 w-100 position-absolute bottom-0 text-center">
                                             <a href="#">
                                                 <figure class="avatar ms-auto me-auto mb-0 position-relative w50 z-index-1"><img src="{{ asset('base/images/user-12.png') }}" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url(images/s-5.jpg);">
+                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url({{ asset('base/images/s-5.jpg') }});">
                                         <div class="card-body d-block p-3 w-100 position-absolute bottom-0 text-center">
                                             <a href="#">
                                                 <figure class="avatar ms-auto me-auto mb-0 position-relative w50 z-index-1"><img src="{{ asset('base/images/user-3.png') }}" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url(images/s-6.jpg);">
+                                    <div data-bs-toggle="modal" data-bs-target="#Modalstory" class="card w125 h200 d-block border-0 shadow-xss rounded-xxxl bg-gradiant-bottom overflow-hidden cursor-pointer mb-3 mt-3" style="background-image: url({{ asset('base/images/s-6.jpg') }});">
                                         <div class="card-body d-block p-3 w-100 position-absolute bottom-0 text-center">
                                             <a href="#">
                                                 <figure class="avatar ms-auto me-auto mb-0 position-relative w50 z-index-1"><img src="{{ asset('base/images/user-2.png') }}" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
                             <div class="card-body d-flex p-0 mt-3">
-                                <a href="#" class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="bx bx-like text-white bg-primary-gradiant me-1 btn-round-xs font-xss"></i> <i class="bx bx-heart text-white bg-red-gradiant me-2 btn-round-xs font-xss"></i>2.8K Like</a>
+                                <a href="#" class="emoji-bttn d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2"><i class="bx bx-heart text-white bg-red-gradiant me-2 btn-round-xs font-xss"></i>2.8K Like</a>
                                 <div class="emoji-wrap">
                                     <ul class="emojis list-inline mb-0">
                                         <li class="emoji list-inline-item"><i class="em em---1"></i> </li>
@@ -315,7 +315,7 @@
                             <div class="owl-carousel category-card owl-theme overflow-hidden nav-none">
                                 <div class="item">
                                     <div class="card w200 d-block border-0 shadow-xss rounded-xxl overflow-hidden mb-3 me-2 mt-3">
-                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url(images/u-bg.jpg);"></div>
+                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url({{ asset('base/images/u-bg.jpg') }});"></div>
                                         <div class="card-body d-block w-100 ps-4 pe-4 pb-4 text-center">
                                             <figure class="avatar ms-auto me-auto mb-0 mt--6 position-relative w75 z-index-1"><img src="{{ asset('base/base/images/user-11.png') }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                             <div class="clearfix"></div>
@@ -329,7 +329,7 @@
 
                                 <div class="item">
                                     <div class="card w200 d-block border-0 shadow-xss rounded-xxl overflow-hidden mb-3 me-2 mt-3">
-                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url(images/s-2.jpg);"></div>
+                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url({{ asset('base/images/s-2.jpg') }});"></div>
                                         <div class="card-body d-block w-100 ps-4 pe-4 pb-4 text-center">
                                             <figure class="avatar ms-auto me-auto mb-0 mt--6 position-relative w75 z-index-1"><img src="{{ asset('base/images/user-2.png') }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                             <div class="clearfix"></div>
@@ -343,7 +343,7 @@
 
                                 <div class="item">
                                     <div class="card w200 d-block border-0 shadow-xss rounded-xxl overflow-hidden mb-3 me-2 mt-3">
-                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url(images/s-6.jpg);"></div>
+                                        <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url({{ asset('base/images/s-6.jpg') }});"></div>
                                         <div class="card-body d-block w-100 ps-4 pe-4 pb-4 text-center">
                                             <figure class="avatar ms-auto me-auto mb-0 mt--6 position-relative w75 z-index-1"><img src="{{ asset('base/images/user-3.png') }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                             <div class="clearfix"></div>
