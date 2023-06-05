@@ -27,26 +27,35 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
+    // User posts one-to-many relationship
     public function posts()
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
 
-    public function groups()
+    // User creating groups #author groups
+    public function authorGroups()
     {
         return $this->hasMany(Group::class, 'user_id', 'id');
     }
 
+    // User stories one-to-many relationship
+    public function stories()
+    {
+        return $this->hasMany(Story::class, 'user_id', 'id');
+    }
+
+    // in User changed is_online to boolean  (user is online === true, user is offline === false)
     public function markOnline()
     {
         $this->last_seen_at = Carbon::now();
         $this->is_online = true;
         $this->save();
     }
-
+    // in User changed is_online to boolean  (user is online === false, user is offline === true)
     public function markOffline()
     {
         $this->last_seen_at = Carbon::now();
@@ -57,5 +66,17 @@ class User extends Authenticatable
     public function isOnline()
     {
         return $this->is_online;
+    }
+
+    // User in groups many-to-many relationship
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user', 'user_id', 'group_id');
+    }
+
+    // User friends many-to-many relationship (friendships)
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'friendships', 'user_id', 'friend_id');
     }
 }
