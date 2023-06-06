@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('birthday')->nullable();
             $table->string('gender')->nullable();
             $table->string('pronouns')->nullable();
+            $table->text('bio')->nullable();
             $table->json('socials')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

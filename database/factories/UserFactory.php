@@ -18,7 +18,23 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'username' => fake()->unique()->firstName(),
+            'firstname' => fake()->firstName(),
+            'surname' => fake()->lastName(),
+            'status' => fake()->sentence(),
+            'image' => fake()->imageUrl(640, 480, 'animals', true),
+            'gender' => fake()->randomElement(['male', 'female', 'other']),
+            'pronouns' => fake()->randomElement(['he/him', 'she/her', 'they/them']),
+            'birthday' => fake()->date(),
+            'bio' => fake()->text(),
+            'socials' => json_encode([
+                "facebook" => "https://facebook.com/" . fake()->firstName(),
+                "twitter" => "https://twitter.com/" . fake()->firstName(),
+                "instagram" => "https://instagram.com/" . fake()->firstName(),
+                "linkedin" => "https://linkedin.com/" . fake()->lastName(),
+                "github" => "https://github.com/" . fake()->lastName(),
+                "website" => "https://website.com/" . fake()->lastName(),
+            ]),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -31,7 +47,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
