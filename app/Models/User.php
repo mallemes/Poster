@@ -30,8 +30,13 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
-    // User posts one-to-many relationship
+    // User profile posts one-to-many relationship
     public function posts()
+    {
+        return $this->hasMany(UserPosts::class, 'author_id', 'id');
+    }
+    // User posts for groups one-to-many relationship
+    public function groupPosts()
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
@@ -63,10 +68,6 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function isOnline()
-    {
-        return $this->is_online;
-    }
 
     // User in groups many-to-many relationship
     public function groups()

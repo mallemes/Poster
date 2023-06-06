@@ -294,7 +294,6 @@
 <script src="{{asset('base/js/jquery.easypiechart.min.js')}}"></script>
 
 
-
 </body>
 
 </html>

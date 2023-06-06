@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Poster\Profile\UserPostsRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index($username)
-    {
+    //for show user profile
+    public function index($username){
         $user = User::where('username', $username)->firstOrFail();
-
-        if (!Auth::check()) {
-            return view('profiles.index', compact('user'));
+        // if user is logged in
+        if(Auth::check() and Auth::user()->username === $username) {
+            return view('in_template.auth_user_profile', compact('user'));
         }
-
-        return view('profiles.auth_user', compact('user'));
+        // if user is not logged in
+        return view('profiles.index', compact('user'));
     }
+
+    //for create user post in profile
+    public function createUserPost(UserPostsRequest $request){
+
+        Auth::user()->posts()->create($request->validated());
+        return redirect()->route('profile.index', Auth::user()->username);
+
+    }
+
 }

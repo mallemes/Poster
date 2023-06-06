@@ -45,8 +45,8 @@ Route::prefix('profile')->group(function (){
     Route::middleware('auth')->group(function () {
         Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::post('/create/post', [ProfileController::class, 'createUserPost'])->name('profile.create.post');
     });
-
     Route::get('/{username}', [ProfileController::class, 'index'])->name('profile.index');
 });
 

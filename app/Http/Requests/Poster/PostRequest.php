@@ -9,10 +9,9 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required'],
-            'content' => ['required'],
-            'user_id' => ['required', 'integer'],
-            'is_published' => ['required'],
+            'content' => 'nullable',
+            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_published' => 'required|boolean',
         ];
     }
 
