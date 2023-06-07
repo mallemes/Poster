@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->string('file')->nullable();
             $table->boolean('is_published')->default(true);
-            $table->foreignIdFor(User::class, 'author_id')->constrained('users')->onDelete('cascade');
+            $table->foreignIdFor(User::class, 'author_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
