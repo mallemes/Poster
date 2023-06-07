@@ -25,9 +25,10 @@ class User extends Authenticatable
 
     protected $guarded = false;
 
-    public function role()
+    // User roles many-to-many relationship
+    public function roles()
     {
-        return $this->belongsTo(Role::class, 'role_id', 'id');
+        return $this->belongsToMany(Role::class, 'user_role', 'user_id', 'role_id');
     }
 
     // User profile posts one-to-many relationship

@@ -10,8 +10,9 @@ class Role extends Model
 
     protected $table = 'roles';
 
+    // User roles many-to-many relationship
     public function users()
     {
-        return $this->hasMany(User::class, 'role_id', 'id');
+        return $this->belongsToMany(User::class, 'user_role', 'role_id', 'user_id');
     }
 }
