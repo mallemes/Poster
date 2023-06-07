@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -86,5 +87,15 @@ class User extends Authenticatable
     public function postsLiked()
     {
         return $this->belongsToMany(Post::class, 'post_user', 'user_id', 'post_id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            $user->image = 'default/default.png';
+            $user->save();
+        });
     }
 }

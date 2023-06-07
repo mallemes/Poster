@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('surname')->nullable();
             $table->string('username')->unique();
             $table->string('status')->nullable();
-            $table->string('image')->default(public_path('default/default.png'));
+            $table->string('image')->nullable();
             $table->string('email')->unique();
             $table->date('birthday')->nullable();
             $table->string('gender')->nullable();
