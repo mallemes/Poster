@@ -23,6 +23,7 @@ class AuthService
         }
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
+        $user->roles()->attach(['role_id' => 1]);
         Auth::login($user);
         Auth::user()->markOnline();
     }
