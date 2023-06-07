@@ -19,7 +19,7 @@ class RegisterController extends Controller
 
     // register view for user
     public function create(){
-        return view('in_template.register');
+        return view('auth.register');
     }
 
     // register to db logic for user
