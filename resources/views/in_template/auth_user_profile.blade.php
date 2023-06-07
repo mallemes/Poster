@@ -14,8 +14,8 @@
                             <div class="card-body h250 p-0 rounded-xxl overflow-hidden m-3"><img
                                     src="{{asset('base/images/u-bg.jpg')}}" alt="image"></div>
                             <div class="card-body p-0 position-relative">
-                                <figure class="avatar position-absolute w100 z-index-1" style="top:-40px; left: 30px;">
-                                    <img src="{{asset($user->image)}}" alt="image"
+                                <figure class="avatar position-absolute z-index-1" style="top:-40px; left: 30px; width: 100px; height: 100px; overflow: hidden;">
+                                    <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset($user->image)}}" alt="image"
                                          class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                 <h4 class="fw-700 font-sm mt-2 mb-lg-5 mb-4 pl-15">{{$user->firstname}} {{$user->surname}}
                                     <span
@@ -73,11 +73,11 @@
                                 @foreach($user->posts as $post)
                                     <div class="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3 mt-3">
                                         <div class="card-body p-0 d-flex">
-                                            <figure class="avatar me-3"><img src="{{$user->image}}" alt="image"
-                                                                             class="shadow-sm rounded-circle w45">
+                                            <figure class="avatar me-3" style="width: 45px; height: 45px; overflow: hidden;"><img style="width: 100%; height: 100%; object-fit: cover;" src="{{$user->image}}" alt="image"
+                                                                             class="shadow-sm rounded-circle">
                                             </figure>
                                             <h4 class="fw-700 text-grey-900 font-xssss mt-1"><span
-                                                    class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{$post->created_at}}</span>
+                                                    class="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500">{{$post->created_at->diffForHumans()}}</span>
                                             </h4>
                                         </div>
                                         <div class="card-body p-0 mb-3 rounded-3 overflow-hidden">

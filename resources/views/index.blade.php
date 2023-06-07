@@ -317,7 +317,7 @@
                                     <div class="card w200 d-block border-0 shadow-xss rounded-xxl overflow-hidden mb-3 me-2 mt-3">
                                         <div class="card-body position-relative h100 bg-image-cover bg-image-center" style="background-image: url({{ asset('base/images/u-bg.jpg') }});"></div>
                                         <div class="card-body d-block w-100 ps-4 pe-4 pb-4 text-center">
-                                            <figure class="avatar ms-auto me-auto mb-0 mt--6 position-relative w75 z-index-1"><img src="{{ asset('base/base/images/user-11.png') }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
+                                            <figure class="avatar ms-auto me-auto mb-0 mt--6 position-relative w75 z-index-1"><img src="{{ asset('base/images/user-11.png') }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                             <div class="clearfix"></div>
                                             <h4 class="fw-700 font-xsss mt-2 mb-1">Aliqa Macale </h4>
                                             <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-2">support@gmail.com</p>

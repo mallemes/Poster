@@ -47,7 +47,7 @@
             </div>
         </form>
         <a href="default.html" class="p-2 text-center ms-3 menu-icon center-menu-icon"><i class="bx bx-home-alt font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
-        <a href="default-storie.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="bx bxs-bolt bg-greylight btn-round-lg text-grey-500 "></i></a>
+        <a href="default-storie.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="bx bxs-bolt font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
         <a href="default-video.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="bx bx-video font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
         <a href="default-group.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="bx bx-user font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
         <a href="shop-2.html" class="p-2 text-center ms-0 menu-icon center-menu-icon"><i class="bx bx-shopping-bag font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
@@ -247,7 +247,7 @@
                     </div>
                 </div>
                 <div class="form-group mt-3 mb-0 p-3 position-absolute bottom-0 z-index-1 w-100">
-                    <input type="text" class="style2-input w-100 bg-transparent border-light-md p-3 pe-5 font-xssss fw-500 text-white" value="Write Comments">
+                    <input type="text" class="style2-input w-100 bg-transparent border-light-md p-3 pe-5 font-xssss fw-500 text-white" placeholder="Оставить комментарий">
                     <span class="feather-send text-white font-md text-white position-absolute" style="bottom: 35px;right:30px;"></span>
                 </div>
             </div>
