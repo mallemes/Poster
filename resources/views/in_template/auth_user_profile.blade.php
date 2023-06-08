@@ -16,16 +16,20 @@
                             <div class="card-body p-0 position-relative">
                                 <figure class="avatar position-absolute z-index-1" style="top:-40px; left: 30px; width: 100px; height: 100px; overflow: hidden;">
                                     <img style="width: 100%; height: 100%; object-fit: cover;" src="{{asset($user->image)}}" alt="image"
-                                         class="float-right p-1 bg-white rounded-circle w-100"></figure>
+                                         class="float-right p-1 bg-white rounded-circle w-100">
+                                </figure>
+                                @if($user->is_online)
+                                    <div class="online-circle"></div>
+                                @endif
                                 <h4 class="fw-700 font-sm mt-2 mb-lg-5 mb-4 pl-15">{{$user->firstname}} {{$user->surname}}
                                     <span
-                                        class="fw-500 font-xssss text-grey-500 mt-1 mb-3 d-block">{{$user->email}}</span>
+                                        class="fw-500 font-xssss text-grey-500 mt-1 mb-3 d-block">{{$user->status}}</span>
                                 </h4>
                                 <div
                                     class="d-flex align-items-center justify-content-center position-absolute-md right-15 top-0 me-2">
                                     <a href="#"
-                                       class="d-none d-lg-block bg-success p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">Add
-                                        Friend</a>
+                                       class="d-none d-lg-block bg-secondary p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">
+                                        Редактировать</a>
                                     <a href="#"
                                        class="d-none d-lg-block bg-greylight btn-round-lg ms-2 rounded-3 text-grey-700"><i
                                             class="feather-mail font-md"></i></a>
