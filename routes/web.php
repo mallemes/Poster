@@ -14,6 +14,8 @@ Route::get('/', function () {
     return redirect()->route('index');
 });
 
+Route::get('/settings', [IndexController::class, 'settings'])->name('settings');
+
 // for posts
 Route::prefix('posts')->group(function (){
     Route::middleware('auth')->group(function () {
@@ -43,7 +45,7 @@ Route::prefix('groups')->group(function (){
 // for users profile or profiles
 Route::prefix('profile')->group(function (){
     Route::middleware('auth')->group(function () {
-        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/edit/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('/create/post', [ProfileController::class, 'createUserPost'])->name('profile.create.post');
     });
