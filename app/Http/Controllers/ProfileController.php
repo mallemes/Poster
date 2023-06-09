@@ -27,7 +27,8 @@ class ProfileController extends Controller
 
     }
 
-    public function edit(User $user){
+    public function edit($username){
+        $user = User::where('username', $username)->firstOrFail();
         return view('profiles.edit', compact('user'));
     }
 

@@ -19,7 +19,7 @@ class GroupFactory extends Factory
     {
         return [
             'name' => fake()->unique()->company(),
-            'slug' => fake()->unique()->company(),
+            'slug' => fake()->unique()->slug(),
             'status' => fake()->boolean(),
             'description' => fake()->text(),
             'file' => fake()->imageUrl(640, 480, 'animals', true),

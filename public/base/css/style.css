@@ -17293,7 +17293,7 @@ select.sort {
 
 .online-circle{
     position: absolute;
-    z-index: 1000;
+    z-index: 2;
     left: 100px;
     top: 30px;
     width: 20px;
@@ -17303,40 +17303,23 @@ select.sort {
     background-color: #4BB34B;
 }
 
+.offline-circle{
+    position: absolute;
+    z-index: 1000;
+    left: 100px;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background-color: #424242;
+}
+
 #user-profile{
     cursor: pointer;
+    transition: filter 0.3s ease-in-out;
 }
 
-
-
-.image-container {
-    position: relative;
-    display: inline-block;
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 1px;
-    left: 0;
-    width: 100%;
-    color: #111;
-    font-size: 12px;
-    padding: 10px;
-    box-sizing: border-box;
-    opacity: 0;
-
-    transition: opacity 0.3s;
-}
-
-.image-container:hover .image-caption {
-    opacity: 1;
-}
-
-.image-container:hover img{
+#user-profile:hover{
     filter: brightness(40%);
-
-}
-
-.image-container img:hover + .image-caption {
-    opacity: 1;
 }

@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\GroupController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Group\GroupController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Group\GroupUserController;
 
 Route::get('/home', [IndexController::class, 'index'])->name('index');
 
@@ -37,6 +38,8 @@ Route::prefix('groups')->group(function (){
         Route::get('/{group}/edit', [GroupController::class, 'edit'])->name('groups.edit');
         Route::put('/{group}', [GroupController::class, 'update'])->name('groups.update');
         Route::delete('/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
+
+        Route::post('/{group}/subscribe', [GroupUserController::class, 'subscribe'])->name('groups.subscribe');
     });
 
     Route::get('/', [GroupController::class, 'index'])->name('groups.index');
@@ -45,7 +48,7 @@ Route::prefix('groups')->group(function (){
 // for users profile or profiles
 Route::prefix('profile')->group(function (){
     Route::middleware('auth')->group(function () {
-        Route::get('/edit/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/edit/{username}', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('/create/post', [ProfileController::class, 'createUserPost'])->name('profile.create.post');
     });

@@ -10,9 +10,9 @@ class GroupRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'slug' => ['required'],
-            'user_id' => ['required', 'integer'],
-            'description' => ['required'],
+            'slug' => ['required', 'unique:groups', 'max: 20', 'min: 5', 'regex:/^[a-z0-9-_]+$/i'],
+            'user_id' => ['required', 'integer', 'exists:users,id'],
+            'description' => ['required', 'max: 255'],
             'status' => ['required'],
         ];
     }

@@ -175,7 +175,7 @@
                         <li class="logo d-none d-xl-block d-lg-block"></li>
                         <li><a href="default.html" class="nav-content-bttn open-font" ><i class="bx bx-tv btn-round-md bg-blue-gradiant me-3"></i><span>Обзор</span></a></li>
                         <li><a href="default-badge.html" class="nav-content-bttn open-font" ><i class="bx bxs-user-account btn-round-md bg-red-gradiant me-3"></i><span>Друзья</span></a></li>
-                        <li><a href="default-storie.html" class="nav-content-bttn open-font" ><i class="bx bx-group btn-round-md bg-gold-gradiant me-3"></i><span>Группы</span></a></li>
+                        <li><a href="{{ route('groups.index') }}" class="nav-content-bttn open-font" ><i class="bx bx-group btn-round-md bg-gold-gradiant me-3"></i><span>Группы</span></a></li>
                         <li><a href="default-group.html" class="nav-content-bttn open-font" ><i class="bx bx-globe btn-round-md bg-mini-gradiant me-3"></i><span>Интересное</span></a></li>
                         <li><a href="user-page.html" class="nav-content-bttn open-font"><i class="bx bx-bookmark btn-round-md bg-primary me-3"></i><span>Избранное</span></a></li>
                     </ul>

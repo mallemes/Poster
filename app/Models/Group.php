@@ -18,7 +18,7 @@ class Group extends Model
     }
 
     // Group users #members many-to-many relationship
-    public function users()
+    public function usersIn()
     {
         return $this->belongsToMany(User::class, 'group_user', 'group_id', 'user_id');
     }
