@@ -27,9 +27,12 @@
                                 </h4>
                                 <div
                                     class="d-flex align-items-center justify-content-center position-absolute-md right-15 top-0 me-2">
-                                    <a href="#"
-                                       class="d-none d-lg-block bg-secondary p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">
-                                        Редактировать</a>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button href="#"
+                                           class="d-none d-lg-block bg-secondary p-3 z-index-1 rounded-3 text-white font-xsssss text-uppercase fw-700 ls-3">
+                                            Выйти</button>
+                                    </form>
                                     <a href="#"
                                        class="d-none d-lg-block bg-greylight btn-round-lg ms-2 rounded-3 text-grey-700"><i
                                             class="feather-mail font-md"></i></a>

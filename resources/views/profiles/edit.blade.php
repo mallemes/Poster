@@ -18,12 +18,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-4 text-center">
                                     <figure class="avatar ms-auto me-auto mb-0 mt-2 w100">
-                                        <div class="image-container">
                                             <img src="{{ asset($user->image) }}" alt="image" id="user-profile" class="rounded-3 w-100">
-                                            <div class="image-caption">
-                                                Изменить фото
-                                            </div>
-                                        </div>
                                     </figure>
 
                                     <h2 class="fw-700 font-sm text-grey-900 mt-3">{{ $user->firstname . " " . $user->surname }}</h2>

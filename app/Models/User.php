@@ -70,9 +70,11 @@ class User extends Authenticatable
         $this->save();
     }
 
-
+    public function groups(){
+        return $this->hasMany(Group::class, 'user_id', 'id');
+    }
     // User in groups many-to-many relationship
-    public function groups()
+    public function groupsIn()
     {
         return $this->belongsToMany(Group::class, 'group_user', 'user_id', 'group_id');
     }
@@ -89,6 +91,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class, 'post_user', 'user_id', 'post_id');
     }
 
+    // set default image for user
     public static function boot()
     {
         parent::boot();

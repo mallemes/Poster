@@ -8,25 +8,16 @@ use App\Services\Poster\Auth\AuthService;
 
 class RegisterController extends Controller
 {
-    // service logic
-    private $service;
-    public function __construct(AuthService $service)
-    {
-        $this->service =  $service;
-    }
-    // end service logic
-
-
     // register view for user
     public function create(){
         return view('auth.register');
     }
 
     // register to db logic for user
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request, AuthService $service)
     {
         $validatedData = $request->validated();
-        $this->service->register($validatedData);
+        $service->register($request->validated());
         return redirect()->route('index');
     }
 }
